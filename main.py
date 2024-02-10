@@ -1,7 +1,8 @@
 import psycopg2
 from RevisarAlma import revisar_almacen
 from RevisarVen import revisar_ventas
-from AdminAlma import AdministrarAlma
+from AdminAlma import administrarAlma
+from AdminVentas import administrasVentas
 def menu():
     print('''
 _________    _____   .____     .___ 
@@ -24,26 +25,29 @@ def main():
     while True:
         input_user = input('Ingrese su usuario: ')
         input_password = input('Ingrese su contraseña: ')
-        
         if input_user == user and input_password == password:
+            print(f'Bienvenido {user}!')
+            break
+    while True:
             menu() 
             option = int(input('Ingrese una opcion: '))
             if option == 1:
                 revisar_almacen(cursor, conn)
-                print('Accion realizada')
+                print('Accion realizada✅')
             elif option == 2:
                 revisar_ventas(cursor, conn)
-                print('Accion realizada')
+                print('Accion realizada✅')
             elif option == 3:
-                AdministrarAlma(cursor, conn)
-                print('Accion realizada')
+                administrarAlma(cursor, conn)
+                print('Accion realizada✅')
             elif option == 4:
-                print('Administar Ventas')
+                administrasVentas(cursor, conn)
+                print('Administar Ventas✅')
             elif option == 5:
-                print('Saliendo del programa...')
+                print('🔴Saliendo del programa🔴')
                 break
-        else:
-            print('Usuario o contraseña incorrectos')
+            else:
+                print('Usuario o contraseña incorrectos')
 
 if __name__ == "__main__":
     main()

@@ -71,7 +71,7 @@ def modificar_producto(cursor, conn):
         print('No se puede modificar un producto sin precio o cantidad')
     
 
-def AdministrarAlma(cursor, conn):
+def administrarAlma(cursor, conn):
     while True:
         print('''
         1. Agregar producto
